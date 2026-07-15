@@ -181,6 +181,9 @@ def train_and_evaluate(app_record_path, credit_record_path, models_dir):
     for name, filename in model_filename_map.items():
         joblib.dump(results[name]['model'], os.path.join(models_dir, filename))
         
+    # Save the winner model as best_model.joblib
+    joblib.dump(best_model, os.path.join(models_dir, 'best_model.joblib'))
+    
     print("Preprocessors and all models saved successfully!")
     
     # Compile detailed statistics for all models
