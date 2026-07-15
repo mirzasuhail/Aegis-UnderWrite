@@ -1,0 +1,389 @@
+/* Aegis Glassmorphism Enterprise Styling Systems */
+
+:root {
+    --bg-black: #000000;
+    --bg-glass: rgba(255, 255, 255, 0.015);
+    --bg-glass-hover: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.05);
+    --border-glass-focus: rgba(255, 255, 255, 0.2);
+    --glow-soft: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Glass Panels */
+.glass-panel {
+    background: var(--bg-glass);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-glass);
+    border-radius: 1rem;
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.7);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.8), 0 0 30px var(--glow-soft);
+}
+
+/* Active Highlight Glass (Dominant Card) */
+.glass-dominant {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+/* Form inputs & Select dropdowns */
+.glass-input, .glass-select {
+    background-color: rgba(255, 255, 255, 0.01) !important;
+    border: 1px solid var(--border-glass) !important;
+    color: var(--text-primary) !important;
+    padding: 0.95rem 1.35rem !important; /* Slightly increased padding */
+    border-radius: 0.75rem !important;
+    outline: none !important;
+    font-size: 0.95rem !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+.glass-input:focus, .glass-select:focus {
+    border-color: var(--border-glass-focus) !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.04) !important;
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+.glass-select option {
+    background-color: #050505;
+    color: var(--text-primary);
+}
+
+/* Custom Checkbox/Radio Switches */
+.glass-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.glass-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    transition: .3s;
+    border-radius: 9999px;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #a1a1aa;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+.glass-switch input:checked + .switch-slider {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glass-switch input:checked + .switch-slider:before {
+    transform: translateX(20px);
+    background-color: #ffffff;
+}
+
+/* Modern Segmented Controller */
+.segmented-control {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    border-radius: 0.75rem;
+    padding: 0.25rem;
+}
+
+.segmented-control label {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.625rem;
+    font-size: 0.875rem; /* Increased size slightly */
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.segmented-control input:checked + span {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Timeline/Console log styling */
+.console-line {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.console-line.active {
+    opacity: 1;
+    color: #ffffff;
+}
+
+.console-line.success {
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.console-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Ambient glows */
+.radial-glow-ambient {
+    background: radial-gradient(circle 500px at 50% 200px, rgba(255, 255, 255, 0.03), transparent 70%);
+}
+
+/* Transitions */
+.transition-all-300 {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================================================
+   AEGIS ENTERPRISE TYPOGRAPHY SYSTEM
+   ================================================== */
+
+.heading-main {
+    font-family: 'Outfit', sans-serif;
+    font-size: 44px;
+    line-height: 52px;
+    font-weight: 800;
+}
+@media (min-width: 640px) {
+    .heading-main {
+        font-size: 48px;
+        line-height: 56px;
+    }
+}
+@media (min-width: 1024px) {
+    .heading-main {
+        font-size: 60px;
+        line-height: 68px;
+    }
+}
+
+.heading-section {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+@media (min-width: 768px) {
+    .heading-section {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+@media (min-width: 1024px) {
+    .heading-section {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+
+.heading-card {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+}
+@media (min-width: 768px) {
+    .heading-card {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+@media (min-width: 1024px) {
+    .heading-card {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+.label-enterprise {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 600;
+}
+@media (min-width: 768px) {
+    .label-enterprise {
+        font-size: 15px;
+        line-height: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .label-enterprise {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+.body-enterprise {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+}
+@media (min-width: 768px) {
+    .body-enterprise {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+@media (min-width: 1024px) {
+    .body-enterprise {
+        font-size: 18px;
+        line-height: 30px; /* Increased line-height for readability */
+    }
+}
+
+.table-header-enterprise {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 600;
+}
+@media (min-width: 768px) {
+    .table-header-enterprise {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+@media (min-width: 1024px) {
+    .table-header-enterprise {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+.table-value-enterprise {
+    font-size: 13px;
+    line-height: 18px;
+}
+@media (min-width: 768px) {
+    .table-value-enterprise {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+@media (min-width: 1024px) {
+    .table-value-enterprise {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+.helper-enterprise {
+    font-size: 12px;
+    line-height: 16px;
+}
+@media (min-width: 768px) {
+    .helper-enterprise {
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+@media (min-width: 1024px) {
+    .helper-enterprise {
+        font-size: 15px;
+        line-height: 22px;
+    }
+}
+
+.footer-enterprise {
+    font-size: 11px;
+    line-height: 16px;
+}
+@media (min-width: 768px) {
+    .footer-enterprise {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+@media (min-width: 1024px) {
+    .footer-enterprise {
+        font-size: 13px;
+        line-height: 20px;
+    }
+}
+
+/* Custom Fade In Animation */
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

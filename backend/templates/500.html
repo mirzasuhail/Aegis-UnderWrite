@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Aegis | Server Error{% endblock %}
+
+{% block content %}
+<section class="py-24 md:py-40 flex items-center justify-center">
+    <div class="max-w-md mx-auto px-6 text-center space-y-8">
+        <h1 class="font-outfit text-8xl font-black text-transparent bg-gradient-to-r from-red-400 to-crimson-500 bg-clip-text leading-none select-none">
+            500
+        </h1>
+        <div class="space-y-3">
+            <h2 class="font-outfit text-2xl font-bold text-white">Internal Server Error</h2>
+            <p class="text-slate-400 font-light text-sm leading-relaxed">
+                Something went wrong on our end. This could be due to invalid inputs or service configurations. Please try again.
+            </p>
+        </div>
+        <div>
+            <a href="/" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:opacity-95 text-white font-semibold px-6 py-3 rounded-xl shadow-lg transition-all transform hover:-translate-y-0.5">
+                <span>Return Home</span>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

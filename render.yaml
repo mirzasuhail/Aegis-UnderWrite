@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: aegis-credit-underwrite
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run_app:app
+    envVars:
+      - key: FLASK_CONFIG
+        value: prod
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.10.12

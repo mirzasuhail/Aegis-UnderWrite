@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis Underwrite | Enterprise Risk & Credit Systems</title>
+    
+    <meta name="description" content="Aegis Enterprise Underwriting Platform - Professional AI Credit Card Prescreening Dashboard.">
+    <meta name="author" content="Aegis Risk Systems">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#09090b',
+                            950: '#000000',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}?v=1.0.5">
+</head>
+<body class="bg-black text-white font-sans min-h-screen selection:bg-white/20 selection:text-white antialiased">
+
+    <!-- Ambient Radial Glow -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] h-[550px] radial-glow-ambient pointer-events-none z-0"></div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-7 h-7 rounded bg-white text-black font-outfit font-extrabold flex items-center justify-center text-sm shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                    Æ
+                </div>
+                <span class="font-outfit font-bold tracking-wider text-base">AEGIS UNDERWRITE</span>
+                <span class="text-zinc-600 text-xs px-2 py-0.5 border border-white/5 rounded font-mono">ENTERPRISE-PRO</span>
+            </div>
+            
+            <div class="flex items-center gap-6 text-xs text-zinc-400 font-mono">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-pulse"></span>
+                    <span>UNDERWRITING PIPELINE ACTIVE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-12 space-y-16">
+
+        <!-- Hero Section -->
+        <section class="text-center py-6 space-y-4">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-3.5 py-1 rounded-full text-[9px] font-bold text-zinc-300 uppercase tracking-widest font-mono">
+                Institutional Risk Prescreening
+            </div>
+            <h1 class="font-outfit heading-main text-white">
+                AI Credit Underwriting Platform
+            </h1>
+            <p class="body-enterprise text-zinc-400 max-w-xl mx-auto leading-relaxed">
+                Run stratified predictive scorecards and multi-model consensus engines to audit and prescreen borrower risk variables without reporting inquiries to credit bureaus.
+            </p>
+        </section>
+
+        <!-- Dynamic Content Section -->
+        <section id="assessment-section" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Side: Simplified Enterprise Form (7 Columns) -->
+            <form id="credit-form" class="lg:col-span-7 glass-panel p-8 space-y-8">
+                <div class="border-b border-white/5 pb-4 flex justify-between items-center">
+                    <h2 class="heading-section text-white">Credit Application Form</h2>
+                    <span class="helper-enterprise font-mono text-zinc-500">SYSTEM PRESCREENING</span>
+                </div>
+                
+                <!-- Section 1: Personal Information -->
+                <div class="space-y-4">
+                    <h3 class="heading-card text-zinc-500 uppercase tracking-wider font-mono">01. Personal Information</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Applicant Name" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Applicant Name</label>
+                            <input type="text" id="Applicant Name" name="Applicant Name" value="Alexander Sterling" placeholder="e.g. Alexander Sterling" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Age" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Age (Years)</label>
+                            <input type="number" id="Age" name="Age" value="38" placeholder="e.g. 38" min="18" max="100" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="Gender" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Gender</label>
+                            <select id="Gender" name="Gender" class="glass-select w-full" required>
+                                <option value="" disabled>Select gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male" selected>Male</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Marital Status" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Marital Status</label>
+                            <select id="Marital Status" name="Marital Status" class="glass-select w-full" required>
+                                <option value="" disabled>Select status</option>
+                                <option value="Married" selected>Married</option>
+                                <option value="Single / not married">Single / not married</option>
+                                <option value="Civil marriage">Civil marriage</option>
+                                <option value="Separated">Separated</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Number of Dependents" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Number of Dependents</label>
+                            <input type="number" id="Number of Dependents" name="Number of Dependents" value="2" placeholder="e.g. 2" min="0" max="10" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Employment -->
+                <div class="space-y-4">
+                    <h3 class="heading-card text-zinc-500 uppercase tracking-wider font-mono">02. Employment Details</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Employment Type" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Employment Type</label>
+                            <select id="Employment Type" name="Employment Type" class="glass-select w-full" required>
+                                <option value="" disabled>Select status</option>
+                                <option value="Working" selected>Working</option>
+                                <option value="Commercial associate">Commercial associate</option>
+                                <option value="Pensioner">Pensioner</option>
+                                <option value="State servant">State servant</option>
+                                <option value="Student">Student</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Occupation" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Occupation</label>
+                            <input type="text" id="Occupation" name="Occupation" value="Managers" placeholder="e.g. Managers" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Employment Duration" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Employment Duration (Years)</label>
+                            <input type="number" id="Employment Duration" name="Employment Duration" value="8" placeholder="e.g. 8" min="0" max="60" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Years with Current Employer" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Years with Current Employer</label>
+                            <input type="number" id="Years with Current Employer" name="Years with Current Employer" value="5" placeholder="e.g. 5" min="0" max="60" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Income & Assets -->
+                <div class="space-y-4">
+                    <h3 class="heading-card text-zinc-500 uppercase tracking-wider font-mono">03. Income & Assets</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Annual Income" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Annual Income (INR)</label>
+                            <input type="number" id="Annual Income" name="Annual Income" value="180000" placeholder="e.g. 180000" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Monthly Income" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Monthly Income (INR)</label>
+                            <input type="number" id="Monthly Income" name="Monthly Income" value="15000" placeholder="e.g. 15000" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Savings Balance" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Savings Balance (INR)</label>
+                            <input type="number" id="Savings Balance" name="Savings Balance" value="45000" placeholder="e.g. 45000" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Checking Account Balance" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Checking Account Balance (INR)</label>
+                            <input type="number" id="Checking Account Balance" name="Checking Account Balance" value="8500" placeholder="e.g. 8500" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="Property Ownership" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Property Ownership</label>
+                            <select id="Property Ownership" name="Property Ownership" class="glass-select w-full" required>
+                                <option value="" disabled>Select status</option>
+                                <option value="Yes" selected>Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Housing Type" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Housing Type</label>
+                            <select id="Housing Type" name="Housing Type" class="glass-select w-full" required>
+                                <option value="" disabled>Select housing type</option>
+                                <option value="House / apartment" selected>House / apartment</option>
+                                <option value="With parents">With parents</option>
+                                <option value="Municipal apartment">Municipal apartment</option>
+                                <option value="Rented apartment">Rented apartment</option>
+                                <option value="Office apartment">Office apartment</option>
+                                <option value="Co-op apartment">Co-op apartment</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Bank Account Type" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Bank Account Type</label>
+                            <select id="Bank Account Type" name="Bank Account Type" class="glass-select w-full" required>
+                                <option value="" disabled>Select account</option>
+                                <option value="Savings">Savings</option>
+                                <option value="Checking">Checking</option>
+                                <option value="Both" selected>Both (Savings + Checking)</option>
+                                <option value="None">None</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Credit Profile -->
+                <div class="space-y-4">
+                    <h3 class="heading-card text-zinc-500 uppercase tracking-wider font-mono">04. Credit Profile</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="Credit Score" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Credit Score</label>
+                            <input type="number" id="Credit Score" name="Credit Score" value="780" placeholder="e.g. 780" min="300" max="850" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Number of Existing Credit Cards" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Existing Credit Cards</label>
+                            <input type="number" id="Number of Existing Credit Cards" name="Number of Existing Credit Cards" value="3" placeholder="e.g. 3" min="0" max="20" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Credit Utilization" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Credit Util (%)</label>
+                            <input type="number" id="Credit Utilization" name="Credit Utilization" value="22" placeholder="e.g. 22" min="0" max="100" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label for="Number of Credit Inquiries" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Credit Inquiries (6m)</label>
+                            <input type="number" id="Number of Credit Inquiries" name="Number of Credit Inquiries" value="1" placeholder="e.g. 1" min="0" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Late Payment History" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Late Payments Count</label>
+                            <input type="number" id="Late Payment History" name="Late Payment History" value="0" placeholder="e.g. 0" min="0" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Previous Loan Defaults" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Prior Loan Defaults</label>
+                            <select id="Previous Loan Defaults" name="Previous Loan Defaults" class="glass-select w-full" required>
+                                <option value="" disabled>Select status</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected>No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Existing Liabilities -->
+                <div class="space-y-4">
+                    <h3 class="heading-card text-zinc-500 uppercase tracking-wider font-mono">05. Existing Liabilities & Rules</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Existing Loans" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Has Active Loans</label>
+                            <select id="Existing Loans" name="Existing Loans" class="glass-select w-full" required>
+                                <option value="" disabled>Select status</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected>No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="Loan Amount" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Outstanding Loan Bal (INR)</label>
+                            <input type="number" id="Loan Amount" name="Loan Amount" value="0" placeholder="e.g. 0" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Monthly EMI" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Total Monthly EMI (INR)</label>
+                            <input type="number" id="Monthly EMI" name="Monthly EMI" value="0" placeholder="e.g. 0" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Debt-to-Income Ratio" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Debt-to-Income Ratio (%)</label>
+                            <input type="number" id="Debt-to-Income Ratio" name="Debt-to-Income Ratio" value="18" placeholder="e.g. 18" min="0" max="100" class="glass-input w-full" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="Years at Current Address" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Years at Current Address</label>
+                            <input type="number" id="Years at Current Address" name="Years at Current Address" value="4" placeholder="e.g. 4" min="0" class="glass-input w-full" required>
+                        </div>
+                        <div>
+                            <label for="Education Level" class="block label-enterprise text-zinc-400 uppercase tracking-wider mb-2 font-mono">Education Level</label>
+                            <select id="Education Level" name="Education Level" class="glass-select w-full" required>
+                                <option value="" disabled>Select education</option>
+                                <option value="Higher education" selected>Higher education</option>
+                                <option value="Secondary / secondary special">Secondary / secondary special</option>
+                                <option value="Incomplete higher">Incomplete higher</option>
+                                <option value="Lower secondary">Lower secondary</option>
+                                <option value="Academic degree">Academic degree</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Muted toggles for required ML columns -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+                        <div>
+                            <label class="block label-enterprise text-zinc-500 uppercase mb-2 font-mono">Owns a Car</label>
+                            <div class="segmented-control">
+                                <label><input type="radio" name="Has a car" value="Yes" checked class="sr-only"><span>Yes</span></label>
+                                <label><input type="radio" name="Has a car" value="No" class="sr-only"><span>No</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block label-enterprise text-zinc-500 uppercase mb-2 font-mono">Work Phone</label>
+                            <div class="segmented-control">
+                                <label><input type="radio" name="Has a work phone" value="Yes" class="sr-only"><span>Yes</span></label>
+                                <label><input type="radio" name="Has a work phone" value="No" checked class="sr-only"><span>No</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block label-enterprise text-zinc-500 uppercase mb-2 font-mono">Home Phone</label>
+                            <div class="segmented-control">
+                                <label><input type="radio" name="Has a phone" value="Yes" checked class="sr-only"><span>Yes</span></label>
+                                <label><input type="radio" name="Has a phone" value="No" class="sr-only"><span>No</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block label-enterprise text-zinc-500 uppercase mb-2 font-mono">Email Address</label>
+                            <div class="segmented-control">
+                                <label><input type="radio" name="Has an email" value="Yes" checked class="sr-only"><span>Yes</span></label>
+                                <label><input type="radio" name="Has an email" value="No" class="sr-only"><span>No</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex gap-4">
+                    <button type="submit" id="submit-btn" class="flex-1 bg-white hover:bg-zinc-200 text-black font-extrabold py-4 rounded-xl transition-all duration-200 shadow-[0_0_25px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2">
+                        <span>Assess Application</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    <button type="button" id="reset-btn" class="px-6 py-4 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded-xl text-xs font-semibold tracking-wide transition-all text-zinc-400 hover:text-white">
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <!-- Right Side: Live Logs & Decision Panel (5 Columns) -->
+            <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+                
+                <div id="results-panel" class="glass-panel p-8 min-h-[580px] flex flex-col justify-center items-center text-center relative overflow-hidden">
+                    
+                    <!-- State 1: Idle -->
+                    <div id="state-idle" class="space-y-6">
+                        <div class="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 mx-auto shadow-inner">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-outfit text-lg font-bold text-white mb-2">Awaiting Parameters</h4>
+                            <p class="text-zinc-500 text-xs max-w-xs mx-auto font-light leading-relaxed">
+                                Enter the applicant's details in the logical sections on the left. The automated multi-model consensus checking sequence will activate live.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- State 2: 14-Step Pipeline Logs -->
+                    <div id="state-loading" class="hidden w-full space-y-6 text-left">
+                        <div class="flex items-center gap-4 border-b border-white/5 pb-4">
+                            <div class="console-spinner"></div>
+                            <span class="font-outfit text-sm font-bold text-white font-mono uppercase tracking-wider">Executing Decision Pipeline</span>
+                        </div>
+                        <div class="space-y-2.5" id="pipeline-logger">
+                            <div class="console-line text-[11px]" id="log-validation"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Validating Applicant Information</span></div>
+                            <div class="console-line text-[11px]" id="log-cleaning"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Cleaning Input Data</span></div>
+                            <div class="console-line text-[11px]" id="log-engineering"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Feature Engineering</span></div>
+                            <div class="console-line text-[11px]" id="log-encoding"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Label Encoding</span></div>
+                            <div class="console-line text-[11px]" id="log-scaling"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Feature Scaling</span></div>
+                            <div class="console-line text-[11px]" id="log-lr"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Running Logistic Regression</span></div>
+                            <div class="console-line text-[11px]" id="log-dt"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Running Decision Tree</span></div>
+                            <div class="console-line text-[11px]" id="log-rf"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Running Random Forest</span></div>
+                            <div class="console-line text-[11px]" id="log-xgb"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Running XGBoost</span></div>
+                            <div class="console-line text-[11px]" id="log-comparing"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Comparing Models</span></div>
+                            <div class="console-line text-[11px]" id="log-consensus"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Building Consensus</span></div>
+                            <div class="console-line text-[11px]" id="log-risk"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Calculating Risk Score</span></div>
+                            <div class="console-line text-[11px]" id="log-report"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Generating Underwriting Report</span></div>
+                            <div class="console-line text-[11px]" id="log-pdf"><span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span><span>Preparing PDF</span></div>
+                        </div>
+                    </div>
+
+                    <!-- State 3: Final Institutional Decision Report -->
+                    <div id="state-results" class="hidden w-full text-left space-y-6 animate-fade-in">
+                        
+                        <!-- Premium Decision Card -->
+                        <div id="final-decision-card" class="glass-dominant p-6 text-center relative overflow-hidden">
+                            <div id="final-decision-badge" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 border rounded-full text-[9px] font-bold tracking-widest uppercase mb-4"></div>
+                            <h3 id="final-decision-title" class="font-outfit text-2xl font-black tracking-tight text-white mb-2"></h3>
+                            <p id="final-decision-subtitle" class="text-xs text-zinc-400 font-light max-w-xs mx-auto"></p>
+                        </div>
+
+                        <!-- Grid details -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl border border-white/5 bg-white/5 text-center">
+                                <span class="block label-enterprise text-zinc-500 uppercase tracking-wider mb-1 font-mono">Consensus Score</span>
+                                <span id="final-consensus-score" class="body-enterprise font-mono font-extrabold text-white">-</span>
+                            </div>
+                            <div class="p-4 rounded-xl border border-white/5 bg-white/5 text-center">
+                                <span class="block label-enterprise text-zinc-500 uppercase tracking-wider mb-1 font-mono">Overall Risk Rating</span>
+                                <span id="final-risk-level" class="heading-card text-white">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Banking metrics suggestions -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-3.5 rounded-xl border border-white/5 bg-white/2">
+                                <span class="block label-enterprise text-zinc-500 uppercase tracking-wider font-mono">Credit Limit</span>
+                                <span id="final-limit" class="body-enterprise font-mono font-extrabold text-white">-</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl border border-white/5 bg-white/2">
+                                <span class="block label-enterprise text-zinc-500 uppercase tracking-wider font-mono">Interest APR Range</span>
+                                <span id="final-apr" class="body-enterprise font-mono font-extrabold text-white">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Additional Advisory Info -->
+                        <div class="grid grid-cols-2 gap-4 helper-enterprise font-mono border-t border-white/5 pt-4 text-zinc-500">
+                            <div>
+                                <span>Suggested Card Type:</span>
+                                <span id="final-card-type" class="block text-white font-bold">-</span>
+                            </div>
+                            <div>
+                                <span>Max Monthly EMI:</span>
+                                <span id="final-max-emi" class="block text-white font-bold">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Validity info -->
+                        <div class="helper-enterprise font-mono text-zinc-500 flex justify-between">
+                            <span>SYSTEM DECISION CONFIDENCE: <span id="final-confidence" class="text-white">0%</span></span>
+                            <span>VALIDITY: <span id="final-validity" class="text-white">90 DAYS</span></span>
+                        </div>
+
+                        <div class="pt-2 flex gap-3">
+                            <button id="download-report-btn" class="flex-1 bg-white hover:bg-zinc-200 text-black font-extrabold py-3 rounded-xl transition-all duration-200 shadow-md text-xs flex items-center justify-center gap-1.5">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>
+                                <span>Download PDF Report</span>
+                            </button>
+                            <button id="start-new-btn" class="px-4 py-3 border border-white/10 hover:border-white/20 hover:bg-white/5 rounded-xl text-xs font-semibold transition-all text-zinc-400 hover:text-white">
+                                Start New
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Machine Learning Model Consensus details -->
+        <section id="benchmarks-section" class="hidden space-y-6 animate-fade-in">
+            <div class="border-b border-white/5 pb-3 flex justify-between items-end">
+                <div>
+                    <h2 class="heading-section text-white">Machine Learning Model Consensus</h2>
+                    <p class="body-enterprise text-zinc-400 font-light">Independent scorecard voting outputs from each classifier algorithm.</p>
+                </div>
+                <div class="helper-enterprise font-mono text-zinc-400" id="consensus-summary-header">4 Models Executed</div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="models-execution-grid">
+                <!-- 4 dynamically rendered model cards -->
+            </div>
+        </section>
+
+        <!-- Section 4: AI Underwriting Analysis Summary -->
+        <section id="analysis-report-section" class="hidden space-y-8 animate-fade-in">
+            <h2 class="font-outfit text-lg font-bold text-white border-b border-white/5 pb-3">Detailed AI Underwriting Analysis</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Financial Stability Sections -->
+                <div class="space-y-6">
+                    <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <h4 class="heading-card text-zinc-300 uppercase tracking-wider font-mono">Credit Profile Analysis</h4>
+                        <p id="analysis-credit" class="body-enterprise text-zinc-400 leading-relaxed"></p>
+                    </div>
+                    <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <h4 class="heading-card text-zinc-300 uppercase tracking-wider font-mono">Income Stability Assessment</h4>
+                        <p id="analysis-income" class="body-enterprise text-zinc-400 leading-relaxed"></p>
+                    </div>
+                    <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <h4 class="heading-card text-zinc-300 uppercase tracking-wider font-mono">Employment Risk Assessment</h4>
+                        <p id="analysis-employment" class="body-enterprise text-zinc-400 leading-relaxed"></p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <h4 class="heading-card text-zinc-300 uppercase tracking-wider font-mono">Debt & Liabilities Analysis</h4>
+                        <p id="analysis-debt" class="body-enterprise text-zinc-400 leading-relaxed"></p>
+                    </div>
+                    <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <h4 class="heading-card text-zinc-300 uppercase tracking-wider font-mono">Credit Behaviour & Delinquency</h4>
+                        <p id="analysis-behaviour" class="body-enterprise text-zinc-400 leading-relaxed"></p>
+                    </div>
+                    <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <h4 class="heading-card text-zinc-300 uppercase tracking-wider font-mono">Fraud & Identity Risk</h4>
+                        <p id="analysis-fraud" class="body-enterprise text-zinc-400 leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk indicators / positive and negative factors -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                    <span class="heading-card text-zinc-500 uppercase tracking-wider font-mono">Positive Underwriting Factors</span>
+                    <ul id="analysis-positive-list" class="space-y-2 body-enterprise text-zinc-400 list-disc list-inside"></ul>
+                </div>
+                <div class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                    <span class="heading-card text-zinc-500 uppercase tracking-wider font-mono">Negative Underwriting Factors / Risk Indicators</span>
+                    <ul id="analysis-negative-list" class="space-y-2 body-enterprise text-zinc-400 list-disc list-inside"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Model Performance Analytics & Top Decision Factors -->
+        <!-- Placeholder Empty State -->
+        <section id="analytics-empty-state" class="glass-panel p-12 text-center space-y-6">
+            <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400 mx-auto">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2"></path>
+                </svg>
+            </div>
+            <div class="space-y-2">
+                <h3 class="heading-card text-white">No Assessment Performed</h3>
+                <p class="body-enterprise text-zinc-500 max-w-md mx-auto">
+                    Complete an applicant credit assessment to execute predictive algorithms and generate machine learning analytics.
+                </p>
+            </div>
+        </section>
+
+        <!-- Dynamic Analytics Section (Hidden initially) -->
+        <section id="analytics-container" class="hidden space-y-8 animate-fade-in">
+            <h2 class="heading-section text-white border-b border-white/5 pb-3">Model Performance Analytics & Top Decision Factors</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Performance Table (7 Columns) -->
+                <div class="lg:col-span-7 space-y-4">
+                    <h3 class="heading-card text-zinc-400 uppercase tracking-wider font-mono">Algorithm Scorecard Benchmarks</h3>
+                    <div class="overflow-hidden border border-white/5 rounded-xl bg-white/2">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-white/5 bg-white/5 text-zinc-400 font-mono table-header-enterprise uppercase tracking-wider">
+                                    <th class="py-4 px-6">Classifier Model</th>
+                                    <th class="py-4 px-4 text-right">Accuracy</th>
+                                    <th class="py-4 px-4 text-right">Precision</th>
+                                    <th class="py-4 px-4 text-right">Recall</th>
+                                    <th class="py-4 px-6 text-right">F1-Score</th>
+                                    <th class="py-4 px-6 text-right">Execution</th>
+                                </tr>
+                            </thead>
+                            <tbody id="performance-table-body" class="divide-y divide-white/5 text-zinc-300 table-value-enterprise">
+                                <!-- Dynamically populated rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Feature Importances horizontal bars (5 Columns) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="heading-card text-zinc-400 uppercase tracking-wider font-mono">Top Decision Factors (Relative Importance)</h3>
+                    <div id="feature-importance-bars-container" class="p-6 border border-white/5 rounded-xl bg-white/2 space-y-5">
+                        <!-- Dynamically populated animated bars -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden script block to pass pre-calculated static feature importances -->
+        <script id="feature-importances-data" type="application/json">
+            {{ metrics.feature_importances[:7] | tojson }}
+        </script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 footer-enterprise font-mono text-zinc-600">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <span>AEGIS SEC RISK SYSTEMS &copy; 2026. PROPRIETARY BANKING SOFTWARE.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <span>MODEL VER: stratified-ensemble-v1.0</span>
+                <span>REST-API VER: v1.0.0</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden form to trigger file downloads -->
+    <form id="download-report-form" action="/api/predict/report" method="POST" target="_blank" class="hidden">
+        <!-- Form parameters are dynamically cloned here by JavaScript on submit -->
+    </form>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}?v=1.0.5"></script>
+</body>
+</html>

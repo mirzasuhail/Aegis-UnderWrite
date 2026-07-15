@@ -1,0 +1,44 @@
+# Python environment
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+include/
+.Credit_approval_env/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# IDE / Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project logs
+*.log
+backend/logs/*.log
+
+# Scratch and temporary directories
+scratch/
+tmp/
+temp/
+.gemini/
+.agents/
+
+# Pandas Profiling temporary output files
+pandas_profile_file/
+*.html.json
+*.html.db

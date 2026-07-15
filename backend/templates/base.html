@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aegis | AI Credit Approval Platform{% endblock %}</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Aegis is a production-grade AI-powered credit card approval prediction engine designed for modern financial institutions.">
+    <meta name="author" content="Antigravity Coding Team">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            50: '#f9f9fb',
+                            100: '#f1f2f6',
+                            900: '#09090b',
+                            950: '#030303',
+                        },
+                        accent: {
+                            primary: '#3b82f6', // blue
+                            secondary: '#6366f1', // indigo
+                            emerald: '#10b981', // green
+                            crimson: '#ef4444', // red
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-dark-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-blue-500/30 selection:text-blue-200">
+    
+    <!-- Ambient Backdrop Glow -->
+    <div class="fixed top-0 left-0 right-0 h-[600px] bg-radial-glow pointer-events-none z-0"></div>
+
+    <!-- Header Navbar -->
+    <header class="sticky top-0 z-50 border-b border-white/5 bg-dark-900/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 group">
+                <!-- SVG Logo -->
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-accent-primary to-accent-secondary flex items-center justify-center text-white font-outfit font-bold shadow-[0_0_15px_rgba(59,130,246,0.5)] group-hover:scale-105 transition-transform">
+                    Æ
+                </div>
+                <span class="font-outfit font-semibold text-lg tracking-wide bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent group-hover:text-white transition-colors">
+                    AEGIS
+                </span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="/" class="hover:text-slate-100 transition-colors">Platform</a>
+                <a href="/predict" class="hover:text-slate-100 transition-colors">Approval Engine</a>
+                <a href="/about" class="hover:text-slate-100 transition-colors">Analytics & Model</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <a href="/predict" class="text-sm font-medium bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 px-4 py-2 rounded-full backdrop-blur-sm transition-all duration-200 shadow-sm shadow-black">
+                    Approval Engine
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow z-10 relative">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 bg-dark-950 py-12 text-sm text-slate-500 z-10 relative">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <span class="font-outfit font-semibold text-slate-400">AEGIS INTEL</span>
+                <span class="text-slate-700">|</span>
+                <span>Production Credit Approval Engine</span>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <a href="/" class="hover:text-slate-300 transition-colors">Home</a>
+                <a href="/predict" class="hover:text-slate-300 transition-colors">Engine</a>
+                <a href="/about" class="hover:text-slate-300 transition-colors">Analysis</a>
+            </div>
+            
+            <div class="text-slate-600">
+                &copy; 2026 Aegis Risk Systems. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main JS file -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
